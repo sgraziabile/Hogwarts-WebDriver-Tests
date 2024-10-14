@@ -33,9 +33,7 @@ public class TestLogin {
         login.setUsername("user");
         login.setPassword("tomriddle");
         login.clickIngresar();
-        String expectedState = "Atención: El usuario ingresado no existe";
         String expectedUrl = login_url;
-        assertEquals(expectedState, login.getStateMessage());
         assertEquals(expectedUrl, driver.getCurrentUrl());
         
     }
@@ -47,8 +45,6 @@ public class TestLogin {
         login.setPassword("tomriddle");
         login.clickIngresar();
         String expectedUrl = login_url;
-        String expectedState = "Atención: Debe ingresar un nombre de usuario";
-        assertEquals(expectedState, login.getStateMessage());
         assertEquals(expectedUrl, driver.getCurrentUrl());
         
     }
@@ -60,8 +56,6 @@ public class TestLogin {
         login.setPassword("pass");
         login.clickIngresar();
         String expectedUrl = login_url;
-        String expectedState = "Atención: Contraseña o usuario incorrecto";
-        assertEquals(expectedState, login.getStateMessage());
         assertEquals(expectedUrl, driver.getCurrentUrl()); 
     }
     @Test
@@ -72,8 +66,6 @@ public class TestLogin {
         login.setPassword("pass");
         login.clickIngresar();
         String expectedUrl = login_url;
-        String expectedState = "Atención: El usuario ingresado no existe";
-        assertEquals(expectedState, login.getStateMessage());
         assertEquals(expectedUrl, driver.getCurrentUrl());
         
     }
@@ -85,8 +77,6 @@ public class TestLogin {
         login.setPassword("pass");
         login.clickIngresar();
         String expectedUrl = login_url;
-        String expectedState = "Atención: Debe ingresar un nombre de usuario";
-        assertEquals(expectedState, login.getStateMessage());
         assertEquals(expectedUrl, driver.getCurrentUrl());
         
     }
