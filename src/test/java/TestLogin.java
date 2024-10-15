@@ -11,7 +11,7 @@ public class TestLogin {
     private static final String login_url = "https://cs.uns.edu.ar/~mll/temp/testing/examen/login.html";
     @BeforeClass
     public static void main() {
-        System.setProperty("webdriver.opera.driver", Util.WEB_DRIVER_LOCATION);
+        System.setProperty("webdriver.chrome.driver", Util.WEB_DRIVER_LOCATION);
         TestLogin.driver = new ChromeDriver();
     }
 
@@ -75,6 +75,39 @@ public class TestLogin {
         Login login = new Login(driver);
         login.setUsername("");
         login.setPassword("pass");
+        login.clickIngresar();
+        String expectedUrl = login_url;
+        assertEquals(expectedUrl, driver.getCurrentUrl());
+        
+    }
+    @Test
+    public void invalidLogin6() {
+        driver.get(Util.BASE_URL);
+        Login login = new Login(driver);
+        login.setUsername("dumbridge");
+        login.setPassword("");
+        login.clickIngresar();
+        String expectedUrl = login_url;
+        assertEquals(expectedUrl, driver.getCurrentUrl());
+        
+    }
+    @Test
+    public void invalidLogin7() {
+        driver.get(Util.BASE_URL);
+        Login login = new Login(driver);
+        login.setUsername("user");
+        login.setPassword("");
+        login.clickIngresar();
+        String expectedUrl = login_url;
+        assertEquals(expectedUrl, driver.getCurrentUrl());
+        
+    }
+    @Test
+    public void invalidLogin8() {
+        driver.get(Util.BASE_URL);
+        Login login = new Login(driver);
+        login.setUsername("");
+        login.setPassword("");
         login.clickIngresar();
         String expectedUrl = login_url;
         assertEquals(expectedUrl, driver.getCurrentUrl());
